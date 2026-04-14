@@ -1,0 +1,154 @@
+header {
+    margin:0 0;
+}
+
+header, main, nav, footer {
+    text-align: center;
+}
+
+nav a { /* edits the links within nav container */
+    padding: 18px;
+    font-size:1.8em;
+    text-decoration:none; /* removes underline from nav titles */
+    color:#64BEBE; /* color nav links */
+}
+
+nav a:hover { /* pseudo class */
+    border-bottom:2px #BE6464 solid;
+    font-size:2em;
+    transition: .9s; /* transition effect */
+}
+
+a {
+    color:#BE6464;
+}
+
+hr {
+    border:#64BEBE solid;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#index_main {
+    background-color: #31456B;
+    padding: 15px;
+    border-radius:25px;
+}
+
+.layered_container {
+    position: relative;
+    margin: 15px;
+    width: 200px;
+    height: 200px;
+}
+
+.layer {
+    position: absolute;
+}
+
+.foreground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    word-wrap: break-word;
+    z-index:5;
+    top: 20px;
+    left: 12px;
+}
+
+.background {
+    z-index:1;
+    top: -12px;
+}
+
+.background img {
+    border-radius: 15%;
+}
+
+.box_container {
+    background-color: #31456B;
+    padding: 8px;
+    border-radius:25px;
+    margin: 5px;
+}
+
+.box_container hr {
+    border: 1px #64BEBE solid;
+}
+
+#feedback p {
+    color: #0A1313;
+    text-align: center;
+}
+
+main img {
+    border-radius: 50%;
+}
+
+table {
+    margin:0 auto;
+}
+
+td {
+    padding:10px;
+    font-size:1.3em;
+}
+
+td strong {
+    color:#BE6464;
+}
+
+#table-header {
+    background-color:#31456B;
+}
+
+.table-row {
+    background-color:#6B92B6;
+    color:#0A1313;
+}
+
+ul {
+    width:500px;
+    margin:0 auto;
+    text-align:left;
+}
+
+footer {
+    color:darkslategray;
+}
+
+h1 {
+    font-size:3em;
+    color:#BE6464;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    margin: 20px;
+}
+
+h2 {
+    font-size:2em;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 20px;
+}
+
+em {
+    color:#C1E5E5;
+}
+
+body {
+    color:#C1E5E5;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}

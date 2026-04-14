@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <h1>Edit a Quote</h1>
+
+    <form method="POST" action="/quote/edit">
+        <input type="hidden" name="quoteId" value="<%=quoteInfo[0].quoteId%>">
+        Quote:<br>
+        <label><textarea name="quote" rows="4" cols="50"><%=quoteInfo[0].quote%></textarea></label><br>
+        Category:
+        <label><select name="category">
+                <option value="Freedom" <% if(quoteInfo[0].category == "Freedom") { %>selected<% } %>>Freedom</option>
+                <option value="Inspirational" <% if(quoteInfo[0].category == "Inspirational") { %>selected<% } %>>Inspirational</option>
+                <option value="Life" <% if(quoteInfo[0].category == "Life") { %>selected<% } %>>Life</option>
+                <option value="Moral" <% if(quoteInfo[0].category == "Moral") { %>selected<% } %>>Moral</option>
+                <option value="Motivational" <% if(quoteInfo[0].category == "Motivational") { %>selected<% } %>>Motivational</option>
+                <option value="Wisdom" <% if(quoteInfo[0].category == "Wisdom") { %>selected<% } %>>Wisdom</option>
+            </select></label><br>
+        Number of Likes (1-999):
+        <input type="text" name="likes" value="<%=quoteInfo[0].likes%>"><br>
+        Author:
+        <div class="col-12">
+            <label><select class="form-select" aria-label="q_authorIdLabel" name="q_authorId">
+                    <% for (a of quoteInfo) { %>
+                        <option value="<%= a.authorId %>"
+                                <% if(a.authorId == quoteInfo[0].authorId) { %>selected<% } %> >
+                            <%= a.firstName %> <%=a.lastName %>
+                        </option>
+                    <% } %>
+                </select></label>
+        </div>
+        <button>Update Quote</button>
+    </form>
+    <% if (typeof message != "undefined"){ %>
+    <h3><%=message%></h3>
+    <% } %>
+    <a href="/quotes">Cancel</a>
+    <%- include("partials/footer.ejs") %>
+</body>

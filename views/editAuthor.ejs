@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <h1>Edit an Author's Data</h1>
+
+    <form method="POST" action="/author/edit">
+        <input type="hidden" name="authorId" value="<%=authorInfo[0].authorId%>">
+        First Name:
+        <input type="text" name="fName" value="<%=authorInfo[0].firstName%>"><br>
+        Last Name:
+        <input type="text" name="lName" value="<%=authorInfo[0].lastName%>"><br>
+        Date of Birth:
+        <input type="date" name="birthDate" value="<%=authorInfo[0].dobISO%>"><br>
+        Date of Death:
+        <input type="date" name="deathDate" value="<%=authorInfo[0].dodISO%>"><br>
+        Sex:
+        <input type="radio" name="sex" value="F"
+            <% if (authorInfo[0].sex == "F") { %>
+               checked
+                <% } %>
+        >Female
+        <input type="radio" name="sex" value="M"
+            <% if (authorInfo[0].sex == "M") { %>
+               checked
+                <% } %>
+        >Male
+        <input type="radio" name="sex" value="N"
+            <% if (authorInfo[0].sex == "N") { %>
+               checked
+                <% } %>
+        >Nonbinary<br>
+        Profession:
+        <input type="text" name="profession" value="<%=authorInfo[0].profession%>"><br>
+        Country:
+        <input type="text" name="country" value="<%=authorInfo[0].country%>"><br>
+        Portrait (web URL):
+        <input type="text" name="img" value="<%=authorInfo[0].portrait%>"><br>
+        Biography:<br>
+        <label><textarea name="bio" rows="4" cols="50"><%=authorInfo[0].biography%></textarea></label><br>
+        <button>Update Author</button>
+    </form>
+    <% if (typeof message != "undefined"){ %>
+    <h3><%=message%></h3>
+    <% } %>
+    <a href="/authors">Cancel</a>
+    <%- include("partials/footer.ejs") %>
+</body>

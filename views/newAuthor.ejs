@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+<body class="bg-dark">
+    <h1 class="text-center">Add a New Author</h1>
+    <main class="d-block bg-info bg-opacity-10 border border-info-subtle rounded mx-auto p-3 text-start" style="width:500px;">
+        <form method="POST" action="/author/new">
+            <p class="lh-lg">First Name: <input type="text" name="ejs_fName"></p>
+            <p class="lh-lg">Last Name: <input type="text" name="ejs_lName"></p>
+            <p class="lh-lg">Date of Birth: <input type="date" name="ejs_dob"></p>
+            <p class="lh-lg">Date of Death: <input type="date" name="ejs_dod"></p>
+            <p class="lh-lg">Sex:
+                <input type="radio" name="ejs_sex" value="F" checked>Female
+                <input type="radio" name="ejs_sex" value="M">Male
+                <input type="radio" name="ejs_sex" value="N">Nonbinary</p>
+            <p class="lh-lg">Profession: <input type="text" name="ejs_job"></p>
+            <p class="lh-lg">Country: <input type="text" name="ejs_country"></p>
+            <p class="lh-lg">Portrait (URL): <input type="text" name="ejs_img"></p>
+            <p class="lh-lg">Biography: <br>
+            <label><textarea name="ejs_bio" rows="4" cols="54"></textarea></label></p>
+            <button class="btn btn-primary bg-gradient">Add Author</button>
+        </form>
+        <% if (typeof message != "undefined"){ %>
+            <h3><%=message%></h3>
+        <% } %><br>
+        <a href="/" class="btn btn-danger bg-gradient">Cancel</a><br>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>

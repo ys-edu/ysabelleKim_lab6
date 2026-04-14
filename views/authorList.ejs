@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+<body class="bg-dark">
+    <h1 class="text-center"> Authors </h1>
+    <main class="d-block bg-info bg-opacity-10 border border-info-subtle rounded mx-auto p-3" style="width:500px;">
+        <h2>Total Authors: <%= authors.length %></h2>
+        <a href="/" class="btn btn-secondary bg-gradient">HOME</a><br><br>
+        <% for (i=0; i < authors.length; i++) { %>
+            <div class="d-block border mx-5 p-2">
+                <%=authors[i].firstName%>
+                <%=authors[i].lastName%> | <em>Author ID: <%= authors[i].authorId %></em><br>
+                <a href="/author/edit?authorId=<%=authors[i].authorId%>" class="btn btn-light bg-gradient">UPDATE</a>
+                <a href="/author/delete?authorId=<%=authors[i].authorId%>" class="btn btn-danger bg-gradient">DELETE</a><br>
+            </div>
+        <% } %>
+        <% if (typeof message != "undefined"){ %>
+        <h3><%=message%></h3>
+        <% } %><br>
+        <a href="/" class="btn btn-secondary bg-gradient">HOME</a><br>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>

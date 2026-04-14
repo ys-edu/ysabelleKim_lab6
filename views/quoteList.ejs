@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+<body class="bg-dark">
+    <h1 class="text-center"> Quotes </h1>
+    <main class="d-block bg-info bg-opacity-10 border border-info-subtle rounded mx-auto p-3" style="width:500px;">
+        <h2>Total Quotes: <%= quotes.length %></h2>
+        <a href="/" class="btn btn-secondary bg-gradient">HOME</a><br><br>
+        <% for (i=0; i < quotes.length; i++) { %>
+            <%=quotes[i].quote%><br>
+            - <em><%=quotes[i].firstName%> <%=quotes[i].lastName%><br>
+            Category: <%=quotes[i].category%>
+            | Likes: <%=quotes[i].likes%>
+            | Quote ID: <%= quotes[i].quoteId %><br></em><br>
+            <a href="/quote/edit?quoteId=<%=quotes[i].quoteId%>" class="btn btn-light bg-gradient">UPDATE</a>
+            <a href="/quote/delete?quoteId=<%=quotes[i].quoteId%>" class="btn btn-danger bg-gradient">DELETE</a><br>
+            <hr>
+        <% } %>
+        <% if (typeof message != "undefined"){ %>
+        <h3><%=message%></h3>
+        <% } %><br>
+        <a href="/" class="btn btn-secondary bg-gradient">HOME</a><br>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>

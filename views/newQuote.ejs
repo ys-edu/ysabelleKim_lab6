@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+<body class="bg-dark">
+    <h1 class="text-center">Add a New Quote</h1>
+    <main class="d-block bg-info bg-opacity-10 border border-info-subtle rounded mx-auto p-3 text-start" style="width:500px;">
+        <form method="POST" action="/quote/new">
+            <p class="lh-lg">Quote:<br>
+                <label><textarea name="quote" rows="4" cols="54"></textarea></label></p>
+            <p class="lh-lg">Category:
+            <label><select name="category" class="form-select" aria-label="categoryLabel">
+                    <option value="Freedom">Freedom</option>
+                    <option value="Inspirational">Inspirational</option>
+                    <option value="Life">Life</option>
+                    <option value="Moral">Moral</option>
+                    <option value="Motivational">Motivational</option>
+                    <option value="Wisdom">Wisdom</option>
+                </select></label></p>
+            <p class="lh-lg">Number of Likes (1-999): <input type="number" min="1" max="999" name="likes"></p>
+            <p class="lh-lg">Author: <span class="col-12">
+                <label><select name="q_authorId" class="form-select" aria-label="q_authorIdLabel">
+                        <% for (a of authors) { %>
+                            <option value="<%= a.authorId %>">
+                                <%= a.firstName %> <%=a.lastName %>
+                            </option>
+                        <% } %>
+                    </select></label>
+            </span></p>
+            <button class="btn btn-primary bg-gradient">Add Quote</button>
+        </form>
+        <% if (typeof message != "undefined"){ %>
+        <h3><%=message%></h3>
+        <% } %><br>
+        <a href="/" class="btn btn-danger bg-gradient">Cancel</a><br>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>
